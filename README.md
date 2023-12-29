@@ -1,25 +1,15 @@
-# Serenity JUnit Starter project
+# 🚀 SwagLabs Login Tester 🚀
 
-Get started quickly with Serenity BDD and JUnit 5 with this simple starter project. 
+Welcome to the SwagLabs Login Tester! This project is all about testing various logins for the fake shop "SwagLabs" on the website saucedemo.com. 🛍️
 
-## Get the code
+## 🎯 What does it do? 🎯
 
-Click on the [Use This Template button](https://github.com/serenity-bdd/serenity-junit-starter/generate) to create a new project in your own Github account. 
+This project runs a series of tests on different user logins. Some of these tests are designed to fail, because we believe in learning from our mistakes! 🧪💥
 
-Or simply [download a zip](https://github.com/serenity-bdd/serenity-junit-starter/archive/master.zip) file.
+## 📊 Cool Graphics 📊
 
-## Running the tests under Maven
+One of the best parts of this project is that it can generate graphics of where and when the tests have failed. This gives us a visual representation of our test results, making it easier to understand what's going on. 📈📉
 
-The template project comes with both Maven and Gradle build scripts. To run the tests with Maven, open a command window and run:
+## 🤖 Automation with Jenkins 🤖
 
-  ./mvnw clean verify
-
-## Use Gradle
-
-For GRADLE, pen a command window and run:
-
-  ./gradlew test 
-
-## Viewing the reports
-
-Both of the commands provided above will produce a Serenity test report in the `target/site/serenity` directory. Go take a look!
+But that's not all! These tests are also automated to run in Jenkins. This means less manual work for us, and more consistent and reliable testing. 🔄💻
