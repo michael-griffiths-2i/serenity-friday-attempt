@@ -5,23 +5,16 @@
 
  */
 
-package starter.duckduckgo;
+package saucedemo;
 
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.steps.UIInteractions;
-import org.openqa.selenium.WebElement;
 
 public class NavigateActions extends UIInteractions {
     //extending UIInteractions injects @Managed WebDriver into the class
-    @Step("Navigate to the DuckDuck Go Homepage")
-    public void toTheDuckDuckGoSearchPage(){
-        openUrl("https://duckduckgo.com/");
-    }
-
-
-    @Step("Navigate to the Google Homepage")
-    public void toTheGoogleHomepage(){
-        openUrl("https://google.co.uk");
+    @Step("Navigate to the Swag Labs website")
+    public void toTheSwagLabsPage(){
+        openUrl("https://www.saucedemo.com/");
     }
 
 }

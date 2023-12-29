@@ -11,36 +11,31 @@ import net.serenitybdd.core.Serenity;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.WebDriver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SerenityJUnit5Extension.class)
-class WhenSearchingByKeyword {
+class WhenLoggingIntoSwagLabs {
 
     @Managed(driver ="chrome", options = "headless")
     WebDriver driver;
     NavigateActions navigate;
-    SearchActions search;
-    SearchResultsSidebar searchResultSidebar;
-    ClickActions clicks;
-    @Test
-    void theKeywordShouldAppearInTheResultsSidebar(){
-        navigate.toTheDuckDuckGoSearchPage();
-        search.byKeyword("Cucumber");
-        Serenity.reportThat("The keyword should appear in the sidebar heading",
-                ()->assertThat(searchResultSidebar.heading()).isEqualTo("Cucumber")
-        );
-    }
-    @Test
-    void theGoogleKeywordShouldAppearInTheResults(){
-        navigate.toTheGoogleHomepage();
-        clicks.removeTheGoogleCookiesWarning();
-        search.byGoogleKeyword("Cucumber");
-        Serenity.reportThat("The keyword should appear in the Google results",
-                ()->assertThat(searchResultSidebar.googleHeading()).isEqualTo("Cucumber")
-        );
+    ShopFront shop;
+    LoginActions login;
+    @ParameterizedTest
+    @ValueSource(strings = {"standard_user", "locked_out_user", "problem_user","performance_glitch_user","visual_user","error_user"})
+    void loggingInToSwagLabs(String username){
+        navigate.toTheSwagLabsPage();
+        login.usernameEntry(username);
+        login.passwordEntry("secret_sauce");
+        login.loginClick();
+        Serenity.reportThat("The Products heading should appear on the page",
+                ()->assertThat(shop.productHeading()).isEqualTo("Products"));
 
     }
+
 
 }
